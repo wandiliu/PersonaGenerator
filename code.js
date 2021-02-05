@@ -1,5 +1,3 @@
-// This plugin will open a window to prompt the user to enter a number, and
-// it will then create that many rectangles on the screen.
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -9,23 +7,15 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-// This file holds the main code for the plugins. It has access to the *document*.
-// You can access browser APIs in the <script> tag inside "ui.html" which has a
-// full browser environment (see documentation).
-// This shows the HTML page in "ui.html".
 figma.showUI(__html__, { width: 374, height: 286 });
 const male = ["Aaron", "Adam", "Alan", "Albert", "Alexander", "Andrew", "Anthony", "Arthur", "Austin", "Benjamin", "Billy", "Bobby", "Brandon", "Brian", "Bruce", "Bryan", "Carl", "Charles", "Christian", "Christopher", "Craig", "Daniel", "David", "Dennis", "Donald", "Douglas", "Dylan", "Edward", "Eric", "Ethan", "Eugene", "Frank", "Gary", "George", "Gerald", "Gregory", "Harold", "Harry", "Henry", "Howard", "Jack", "Jacob", "James", "Jason", "Jeffrey", "Jeremy", "Jerry", "Jesse", "Joe", "John", "Johnny", "Jonathan", "Jordan", "Jose", "Joseph", "Joshua", "Juan", "Justin", "Keith", "Kenneth", "Kevin", "Kyle", "Larry", "Lawrence", "Louis", "Mark", "Matthew", "Michael", "Nathan", "Nicholas", "Patrick", "Paul", "Peter", "Philip", "Phillip", "Ralph", "Randy", "Raymond", "Richard", "Robert", "Roger", "Ronald", "Roy", "Russell", "Ryan", "Samuel", "Scott", "Sean", "Stephen", "Steven", "Terry", "Thomas", "Timothy", "Tyler", "Vincent", "Walter", "Wayne", "William", "Willie", "Zachary"];
 const female = ["Alice", "Amanda", "Amber", "Amy", "Andrea", "Angela", "Ann", "Anna", "Ashley", "Barbara", "Betty", "Beverly", "Brenda", "Brittany", "Carol", "Carolyn", "Catherine", "Cheryl", "Christina", "Christine", "Crystal", "Cynthia", "Danielle", "Deborah", "Debra", "Denise", "Diana", "Diane", "Donna", "Doris", "Dorothy", "Elizabeth", "Emily", "Emma", "Evelyn", "Frances", "Gloria", "Grace", "Hannah", "Heather", "Helen", "Jacqueline", "Jane", "Janet", "Janice", "Jean", "Jennifer", "Jessica", "Joan", "Joyce", "Judith", "Judy", "Julia", "Julie", "Karen", "Katherine", "Kathleen", "Kathryn", "Kathy", "Kelly", "Kimberly", "Laura", "Lauren", "Linda", "Lisa", "Lori", "Madison", "Margaret", "Maria", "Marie", "Marilyn", "Martha", "Mary", "Megan", "Melissa", "Michelle", "Mildred", "Nancy", "Nicole", "Olivia", "Pamela", "Patricia", "Rachel", "Rebecca", "Rose", "Ruth", "Samantha", "Sandra", "Sara", "Sarah", "Sharon", "Shirley", "Stephanie", "Susan", "Tammy", "Teresa", "Theresa", "Tiffany", "Victoria", "Virginia"];
 const surname = ["Adams", "Aguilar", "Alexander", "Allen", "Alvarado", "Alvarez", "Anderson", "Andrews", "Armstrong", "Arnold", "Austin", "Bailey", "Baker", "Banks", "Barnes", "Barnett", "Barrett", "Bates", "Beck", "Bell", "Bennett", "Berry", "Bishop", "Black", "Bowman", "Boyd", "Bradley", "Brewer", "Brooks", "Brown", "Bryant", "Burke", "Burns", "Burton", "Butler", "Campbell", "Carlson", "Carpenter", "Carr", "Carroll", "Carter", "Castillo", "Castro", "Chapman", "Chavez", "Chen", "Clark", "Cole", "Coleman", "Collins", "Contreras", "Cook", "Cooper", "Cox", "Crawford", "Cruz", "Cunningham", "Curtis", "Daniels", "Davidson", "Davis", "Day", "Dean", "Delgado", "Diaz", "Dixon", "Douglas", "Duncan", "Dunn", "Edwards", "Elliott", "Ellis", "Estrada", "Evans", "Ferguson", "Fernandez", "Fields", "Fisher", "Flores", "Ford", "Foster", "Fowler", "Fox", "Franklin", "Freeman", "Fuller", "Garcia", "Gardner", "Garrett", "Garza", "George", "Gibson", "Gilbert", "Gomez", "Gonzales", "Gonzalez", "Gordon", "Graham", "Grant", "Gray", "Green", "Greene", "Griffin", "Guerrero", "Gutierrez", "Guzman", "Hall", "Hamilton", "Hansen", "Hanson", "Harper", "Harris", "Harrison", "Hart", "Harvey", "Hawkins", "Hayes", "Henderson", "Henry", "Hernandez", "Herrera", "Hicks", "Hill", "Hoffman", "Holland", "Holmes", "Hopkins", "Howard", "Howell", "Hudson", "Hughes", "Hunt", "Hunter", "Jackson", "Jacobs", "James", "Jenkins", "Jensen", "Jimenez", "Johnson", "Johnston", "Jones", "Jordan", "Keller", "Kelley", "Kelly", "Kennedy", "Kim", "King", "Knight", "Lane", "Larson", "Lawrence", "Lawson", "Lee", "Lewis", "Little", "Long", "Lopez", "Lucas", "Lynch", "Marshall", "Martin", "Martinez", "Mason", "Matthews", "May", "McCoy", "McDonald", "Medina", "Mendez", "Mendoza", "Meyer", "Miller", "Mills", "Mitchell", "Montgomery", "Moore", "Morales", "Moreno", "Morgan", "Morris", "Morrison", "Munoz", "Murphy", "Murray", "Myers", "Nelson", "Newman", "Nguyen", "Nichols", "Obrien", "Oliver", "Olson", "Ortega", "Ortiz", "Owens", "Palmer", "Parker", "Patel", "Patterson", "Payne", "Pearson", "Pena", "Perez", "Perkins", "Perry", "Peters", "Peterson", "Phillips", "Pierce", "Porter", "Powell", "Price", "Ramirez", "Ramos", "Ray", "Reed", "Reid", "Reyes", "Reynolds", "Rice", "Richards", "Richardson", "Riley", "Rios", "Rivera", "Roberts", "Robertson", "Robinson", "Rodriguez", "Rogers", "Romero", "Rose", "Ross", "Ruiz", "Russell", "Ryan", "Salazar", "Sanchez", "Sanders", "Sandoval", "Santos", "Schmidt", "Schneider", "Schultz", "Scott", "Shaw", "Silva", "Simmons", "Simpson", "Sims", "Smith", "Snyder", "Soto", "Spencer", "Stanley", "Stephens", "Stevens", "Stewart", "Stone", "Sullivan", "Taylor", "Thomas", "Thompson", "Torres", "Tran", "Tucker", "Turner", "Valdez", "Vargas", "Vasquez", "Wade", "Wagner", "Walker", "Wallace", "Walsh", "Walters", "Ward", "Warren", "Washington", "Watkins", "Watson", "Weaver", "Webb", "Weber", "Welch", "Wells", "West", "Wheeler", "White", "Williams", "Williamson", "Willis", "Wilson", "Wong", "Wood", "Woods", "Wright", "Young"];
 const images = ["https://i.imgur.com/6Yjoy1w.png", "https://i.imgur.com/VClVVJ4.png", "https://i.imgur.com/eM2vh3M.png", "https://i.imgur.com/cxzfZKs.png", "https://i.imgur.com/eAH8tdB.png", "https://i.imgur.com/bn3Q4Tg.png", "https://i.imgur.com/c04TKcG.png", "https://i.imgur.com/RHwuOdC.png", "https://i.imgur.com/ekGJNjX.png", "https://i.imgur.com/9iEhNMu.png"];
 let all = female.concat(male);
-// Calls to "parent.postMessage" from within the HTML page will trigger this
-// callback. The callback will be passed the "pluginMessage" property of the
-// posted message.
 figma.ui.onmessage = (msg) => __awaiter(this, void 0, void 0, function* () {
-    // One way of distinguishing between different types of messages sent from
-    // your HTML page is to use an object with a "type" property like this.
     if (msg.type === 'create-rectangles') {
+        // this works
         if (msg.contentType === "names") {
             for (const node of figma.currentPage.selection) {
                 if (node.type === "TEXT") {
@@ -36,6 +26,7 @@ figma.ui.onmessage = (msg) => __awaiter(this, void 0, void 0, function* () {
                 }
             }
         }
+        // this doesn't work
         if (msg.contentType === "avatars") {
             for (const node of figma.currentPage.selection) {
                 console.log("in main xx");
@@ -45,6 +36,7 @@ figma.ui.onmessage = (msg) => __awaiter(this, void 0, void 0, function* () {
     }
 });
 ;
+// Randomize names
 function getRandomItem(gender) {
     let rand_f = Math.floor(Math.random() * Math.floor(female.length));
     let rand_a = Math.floor(Math.random() * Math.floor(all.length));
@@ -54,6 +46,7 @@ function getRandomItem(gender) {
             : all[rand_a])
         + " " + surname[rand_s];
 }
+// Me trying to get an image on the screen
 function placeAvatar() {
     return __awaiter(this, void 0, void 0, function* () {
         console.log("in placeavatar");

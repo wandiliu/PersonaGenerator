@@ -1,11 +1,3 @@
-// This plugin will open a window to prompt the user to enter a number, and
-// it will then create that many rectangles on the screen.
-
-// This file holds the main code for the plugins. It has access to the *document*.
-// You can access browser APIs in the <script> tag inside "ui.html" which has a
-// full browser environment (see documentation).
-
-// This shows the HTML page in "ui.html".
 figma.showUI(__html__, {width: 374, height: 286 });
 
 const male = ["Aaron","Adam","Alan","Albert","Alexander","Andrew","Anthony","Arthur","Austin","Benjamin","Billy","Bobby","Brandon","Brian","Bruce","Bryan","Carl","Charles","Christian","Christopher","Craig","Daniel","David","Dennis","Donald","Douglas","Dylan","Edward","Eric","Ethan","Eugene","Frank","Gary","George","Gerald","Gregory","Harold","Harry","Henry","Howard","Jack","Jacob","James","Jason","Jeffrey","Jeremy","Jerry","Jesse","Joe","John","Johnny","Jonathan","Jordan","Jose","Joseph","Joshua","Juan","Justin","Keith","Kenneth","Kevin","Kyle","Larry","Lawrence","Louis","Mark","Matthew","Michael","Nathan","Nicholas","Patrick","Paul","Peter","Philip","Phillip","Ralph","Randy","Raymond","Richard","Robert","Roger","Ronald","Roy","Russell","Ryan","Samuel","Scott","Sean","Stephen","Steven","Terry","Thomas","Timothy","Tyler","Vincent","Walter","Wayne","William","Willie","Zachary"],
@@ -14,13 +6,10 @@ const surname = ["Adams","Aguilar","Alexander","Allen","Alvarado","Alvarez","And
 const images = ["https://i.imgur.com/6Yjoy1w.png","https://i.imgur.com/VClVVJ4.png","https://i.imgur.com/eM2vh3M.png","https://i.imgur.com/cxzfZKs.png","https://i.imgur.com/eAH8tdB.png","https://i.imgur.com/bn3Q4Tg.png","https://i.imgur.com/c04TKcG.png","https://i.imgur.com/RHwuOdC.png","https://i.imgur.com/ekGJNjX.png","https://i.imgur.com/9iEhNMu.png"]
 let all = female.concat(male);
 
-// Calls to "parent.postMessage" from within the HTML page will trigger this
-// callback. The callback will be passed the "pluginMessage" property of the
-// posted message.
 figma.ui.onmessage = async msg => {
-  // One way of distinguishing between different types of messages sent from
-  // your HTML page is to use an object with a "type" property like this.
+
   if (msg.type === 'create-rectangles') {
+    // this works
     if (msg.contentType === "names")  {
       for (const node of figma.currentPage.selection) {
         if (node.type === "TEXT") {
@@ -31,6 +20,7 @@ figma.ui.onmessage = async msg => {
         }
       }    
     }
+    // this doesn't work
     if (msg.contentType === "avatars") {
       for (const node of figma.currentPage.selection) {     
         console.log("in main xx")           
@@ -39,15 +29,10 @@ figma.ui.onmessage = async msg => {
       }    
     }
     }
-    // figma.viewport.scrollAndZoomIntoView(nodes);
   }
-
-
-  // Make sure to close the plugin when you're done. Otherwise the plugin will
-  // keep running, which shows the cancel button at the bottom of the screen.
-  // figma.closePlugin();
 };
 
+// Randomize names
 function getRandomItem(gender) {
   let rand_f = Math.floor(Math.random() * Math.floor(female.length));
   let rand_a = Math.floor(Math.random() * Math.floor(all.length));
@@ -58,6 +43,7 @@ function getRandomItem(gender) {
       + " " + surname[rand_s];
 }
 
+// Me trying to get an image on the screen
 async function placeAvatar() {
   console.log("in placeavatar")           
   figma.showUI(__html__, { visible: false })
