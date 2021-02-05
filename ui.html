@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<style>
+  .selector {
+    cursor: pointer;
+    outline: none;
+    text-align:left; 
+    margin: 2px; 
+    padding: 2px !important; 
+    background-color: white;
+    border-style: solid; 
+    border-radius: 4px; 
+    border-color: #ffffff !important;
+    border-width: 2px;  
+  }
+  .selector.active {
+    outline: none;
+    border-style: solid; 
+    border-radius: 4px; 
+    border-color: #18A0FB !important;
+    border-width: 2px;  
+    }  
+  
+</style>
+<html style="height: 100%;">
+<head>
+<link rel="preconnect" href="https://fonts.gstatic.com"> 
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body style="font-family: 'Inter', sans-serif; font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;">
+<!-- <h2>Hello</h2> -->
+<div style="padding: 2px 8px 8px 8px;">
+  <p style="font-size: 11px; font-weight: 400; margin-bottom: 16px;">Select a type of content to generate:</p>
+<!-- <label style="font-size: 12px; margin-right: 8px;" for="gender">Gender</label> -->
+<div class="w-row" id="selector-container" style="display: block; margin-bottom: 8px;">
+  <div class="w-col w-col-6" style="position:relative ; float: left;">
+    <button class="selector active" value="names">
+    <div class="div-block"><img src="https://i.imgur.com/2FjOZDi.png" width="156" height="94" alt="1231">
+      <div style="padding: 0px 0px 0px 8px;">
+        <p style="font-size: 11px; font-weight: 500; margin-bottom: -6px;">Names</p>
+        <p style="font-size: 11px; font-weight: 400; color:rgb(0, 0, 0, .3)">Select text layer(s).</p>  
+      </div>
+    </div>
+  </button>
+  </div>
+  <!-- <div onMouseOver="this.style.backgroundColor='rgb(0,0,0,0.05)'; this.style.cursor='not-allowed'" onMouseOut="this.style.backgroundColor='white'" class="w-col w-col-6" style="position: relative; float: left; padding: 3px; border-style: solid; border-radius: 4px; border-color: none; border-width: 0px;"> -->
+    <div class="w-col w-col-6" style="position: relative; float: right;">
+      <button class="selector" value="avatars">
+      <div class="div-block"><img src="https://i.imgur.com/NogLM9X.png" loading="lazy" width="156" height="94" alt="">
+      <div style="padding: 0px 0px 0px 8px;">
+      <p style="font-size: 11px; font-weight: 500 !important; margin-bottom: -6px;">Avatars</p>
+      <p style="font-size: 11px; font-weight: 400; color:rgb(0, 0, 0, .3)">Frida, Vincent, and more.</p>
+    </div>
+    </div>
+  </button>
+  </div>
+</div>
+<!-- <select style = "border-radius: 2px; border-color:rgba(0, 0, 0, 0.10); padding: 8px;" name="gender" id="gender">
+  <option value="A">Random</option>
+  <option value="F">Female Only</option>
+  <option value="M">Male Only</option>
+</select>
+</div> -->
+<!-- <button style="cursor: pointer; font-size: 12px; font-weight: 500; border-radius: 6px; border-style: none; color:rgb(255, 255, 255); background-color:#18A0FB; padding: 10px 14px 10px 14px; margin-right: 4px;" id="create">Generate Name</button> -->
+<div style="position: absolute; bottom: 18px; right: 18px;">
+<button style="cursor: pointer; font-size: 11px; font-weight: 500; letter-spacing: 0.2px; border-radius: 6px; border-style:solid; border-width: 1px; border-color: rgba(0, 0, 0); color:rgb(0, 0, 0); background-color:#FFFFFF; padding: 8px 12px 8px 12px; margin-right: 4px;" id="f" value="F">Feminine</button>
+<button style="cursor: pointer; font-size: 11px; font-weight: 500; letter-spacing: 0.2px; border-radius: 6px; border-style:solid; border-width: 1px; border-color: rgba(0, 0, 0); color:rgb(0, 0, 0); background-color:#FFFFFF; padding: 8px 12px 8px 12px; margin-right: 4px;" id="m" value="M">Masculine</button>
+<button style="cursor: pointer; font-size: 11px; font-weight: 500; letter-spacing: 0.2px; border-radius: 6px; border-style:solid; border-width: 1px; border-color: rgba(0, 0, 0); color:rgb(0, 0, 0); background-color:#FFFFFF; padding: 8px 12px 8px 12px;" id="r" value="A">Random</button>
+</div>
+</div>
+<script>
+
+var contentType = "names";
+
+var selectorContainer = document.getElementById("selector-container");
+var btns = selectorContainer.getElementsByClassName("selector");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function() {
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+    contentType = this.value;
+  });
+}
+
+document.getElementById('f').onclick = () => {
+  const selector = document.getElementById('f');
+  const gender = selector.value;
+  parent.postMessage({ pluginMessage: { type: 'create-rectangles', gender, contentType} }, '*')
+}
+
+document.getElementById('m').onclick = () => {
+  const selector = document.getElementById('m');
+  const gender = selector.value;
+  parent.postMessage({ pluginMessage: { type: 'create-rectangles', gender, contentType} }, '*')
+}
+
+document.getElementById('r').onclick = () => {
+  const selector = document.getElementById('r');
+  const gender = selector.value; 
+  parent.postMessage({ pluginMessage: { type: 'create-rectangles', gender, contentType} }, '*')
+}
+
+</script>
+</html>
