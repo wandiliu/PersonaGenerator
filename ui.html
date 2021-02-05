@@ -225,13 +225,16 @@
   window.onmessage = async (event) => {
     const canvas = document.createElement("canvas");
     const ctx = canvas.getContext("2d");
+    const img_id = Math.floor(Math.random() * Math.floor(1000));
+    console.log("image id is "+ img_id);
+    const url = 'https://picsum.photos/id/' + img_id + '/120';
     console.log("Hello");
     let newBytes;
     try {
       const imageData = await decode(
         canvas,
         ctx,
-        "https://i.imgur.com/6Yjoy1w.png"
+        url
       );
       newBytes = await encode(canvas, ctx, imageData);
     } catch (error) {

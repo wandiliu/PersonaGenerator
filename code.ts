@@ -544,7 +544,9 @@ figma.ui.onmessage = async (msg) => {
           case 'VECTOR':
           case 'TEXT': {
             // Create a new array of fills, because we can't directly modify the old one
-            const url = 'https://i.imgur.com/6Yjoy1w.png';
+            const img_id = Math.floor(Math.random() * Math.floor(1000));
+            console.log("image id is "+ img_id);            
+            const url = 'https://picsum.photos/id/' + img_id + '/120';
             const paint = await downloadImage(url);    
             // for (const paint of node.fills) {
             //   newFills.push(await downloadImage(url))
@@ -594,7 +596,7 @@ async function downloadImage(url) {
 }
 
 async function addAvatar() {
-  const url = 'https://i.imgur.com/6Yjoy1w.png'
+  const url = 'https://picsum.photos/1200'
   const avatar = figma.createEllipse()
   avatar.resize(128, 128)
 
