@@ -543,11 +543,30 @@ figma.ui.onmessage = (msg) => __awaiter(this, void 0, void 0, function* () {
         // this doesn't work
         if (msg.contentType === "avatars") {
             for (const node of figma.currentPage.selection) {
-                const Avatar = yield addAvatar();
-                node.fills = Avatar;
+                switch (node.type) {
+                    case 'RECTANGLE':
+                    case 'ELLIPSE':
+                    case 'POLYGON':
+                    case 'STAR':
+                    case 'VECTOR':
+                    case 'TEXT': {
+                        // Create a new array of fills, because we can't directly modify the old one
+                        const url = 'https://i.imgur.com/6Yjoy1w.png';
+                        const paint = yield downloadImage(url);
+                        // for (const paint of node.fills) {
+                        //   newFills.push(await downloadImage(url))
+                        // }
+                        node.fills = [paint];
+                        break;
+                    }
+                    default: {
+                        // not supported, silently do nothing
+                    }
+                }
             }
         }
     }
+    figma.closePlugin("done.");
 });
 // Randomize names
 function getRandomItem(gender) {
@@ -590,10 +609,10 @@ function addAvatar() {
 function createAvatars() {
     return __awaiter(this, void 0, void 0, function* () {
         if (figma.currentPage.selection.length) {
-            yield Promise.all(figma.currentPage.selection.map(selected => addAvatar(selected)));
+            yield Promise.all(figma.currentPage.selection.map(selected => addAvatar()));
         }
         else {
-            const avatar = yield addAvatar(null);
+            const avatar = yield addAvatar();
             figma.currentPage.appendChild(avatar);
             figma.currentPage.selection = [avatar];
             figma.viewport.scrollAndZoomIntoView([avatar]);
