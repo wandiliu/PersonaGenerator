@@ -546,12 +546,16 @@ figma.ui.onmessage = async (msg) => {
             // Create a new array of fills, because we can't directly modify the old one
             const img_id = Math.floor(Math.random() * Math.floor(1000));
             console.log("image id is "+ img_id);            
-            const url = 'https://picsum.photos/id/' + img_id + '/120';
-            const paint = await downloadImage(url);    
+            // const url = 'https://picsum.photos/id/' + img_id + '/120';
+            const url = 'https://scripter.rsms.me/icon.png'
+            let bytes = await getImage(url);    
             // for (const paint of node.fills) {
             //   newFills.push(await downloadImage(url))
             // }
-            node.fills = [paint]
+            let imageHash = figma.createImage(bytes).hash
+            node.fills = [ { type: "IMAGE", scaleMode: "FIT", imageHash } ];
+            figma.currentPage.selection = [node]
+            figma.viewport.scrollAndZoomIntoView([node])          
             break
           }
       
@@ -581,42 +585,89 @@ function getRandomItem(gender) {
   );
 }
 
-// Me trying to get an image on the screen
-async function downloadImage(url) {
-  figma.showUI(__html__, { visible: false })
+// this works, but trying Rasmus' code
+// async function downloadImage(url) {
+//   figma.showUI(__html__, { visible: false })
 
-  figma.ui.postMessage(url);
+//   figma.ui.postMessage(url);
 
-  const newBytes: Uint8Array = await new Promise((resolve, reject) => {
-    figma.ui.onmessage = value => resolve(value as Uint8Array);
-  })
+//   const newBytes: Uint8Array = await new Promise((resolve, reject) => {
+//     figma.ui.onmessage = value => resolve(value as Uint8Array);
+//   })
 
-  const newPaint: Paint = { scaleMode: 'FILL', type: 'IMAGE', imageHash: figma.createImage(newBytes).hash };
-  return newPaint;
-}
+//   const newPaint: Paint = { scaleMode: 'FILL', type: 'IMAGE', imageHash: figma.createImage(newBytes).hash };
+//   return newPaint;
+// }
 
-async function addAvatar() {
-  const url = 'https://picsum.photos/1200'
-  const avatar = figma.createEllipse()
-  avatar.resize(128, 128)
+// async function addAvatar() {
+//   const url = 'https://picsum.photos/1200'
+//   const avatar = figma.createEllipse()
+//   avatar.resize(128, 128)
 
-  const paint: Paint = await downloadImage(url)
-  avatar.fills = [ paint ]
+//   const paint: Paint = await downloadImage(url)
+//   avatar.fills = [ paint ]
 
-  // if (node && (node.type === "GROUP" || node.type === "FRAME")) {
-  //   node.appendChild(avatar)
-  // }
+//   // if (node && (node.type === "GROUP" || node.type === "FRAME")) {
+//   //   node.appendChild(avatar)
+//   // }
   
-  return avatar;
+//   return avatar;
+// }
+
+// async function createAvatars () {
+//   if (figma.currentPage.selection.length) {
+//     await Promise.all(figma.currentPage.selection.map(selected => addAvatar()))
+//   } else {
+//     const avatar = await addAvatar()
+//     figma.currentPage.appendChild(avatar);
+//     figma.currentPage.selection = [avatar];
+//     figma.viewport.scrollAndZoomIntoView([avatar]);  
+//   } 
+// }
+
+// Rasmus code
+// function fetchPaint (url) {
+//   figma.showUI(`<script>
+//   fetch(${JSON.stringify(url)}).then(r => {
+//     if ((r.status+"")[0] != "2") throw Error(\`HTTP \${r.status} \${r.statusText}\`)
+//     return r.arrayBuffer()
+//   }).then(a => parent.postMessage({ pluginMessage: { data: new Uint8Array(a) }}, '*'))
+//   .catch(err => parent.postMessage({ pluginMessage: { error: ""+err }}, '*'))
+// </script>`, {
+//   visible:false, // don't actually show a UI window
+// })
+
+// figma.ui.onmessage = msg => {
+//   if (msg.data && msg.data.length > 0) {
+//     let imageHash = figma.createImage(msg.data).hash
+//     return imageHash;
+//     }
+//   figma.closePlugin(msg.error || "error")
+// }
+// return null;
+// }
+
+async function getImage(urls: string): Promise<Uint8Array> {
+  let response: Response | null = null;
+
+    console.log("fetching")
+    const urlResponse = await fetch(urls);
+    console.log("fetched")
+    if (urlResponse && urlResponse.status === 200) {
+      console.log("in 1st if")
+      response = urlResponse;
+      console.log("responded")
+    }
+
+  if (!response || response.status !== 200) {
+    console.log("error")
+    throw new Error("Couldn't get the video cover image. Is the video URL correct?");
+  }
+
+  console.log("awaiting")
+  const buffer = await response.arrayBuffer();
+  console.log("finished waiting")
+
+  return new Uint8Array(buffer);
 }
 
-async function createAvatars () {
-  if (figma.currentPage.selection.length) {
-    await Promise.all(figma.currentPage.selection.map(selected => addAvatar()))
-  } else {
-    const avatar = await addAvatar()
-    figma.currentPage.appendChild(avatar);
-    figma.currentPage.selection = [avatar];
-    figma.viewport.scrollAndZoomIntoView([avatar]);  
-  } 
-}
