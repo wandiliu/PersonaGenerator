@@ -1,32 +1,21 @@
 figma.showUI(__html__, { width: 374, height: 286 });
 
-const male = [
+const male_euro = [
   "Aaron",
   "Adam",
   "Alan",
   "Albert",
-  "Alexander",
+  "Alex",
   "Andrew",
   "Anthony",
-  "Arthur",
   "Austin",
   "Benjamin",
-  "Billy",
-  "Bobby",
   "Brandon",
   "Brian",
-  "Bruce",
-  "Bryan",
-  "Carl",
-  "Charles",
-  "Christian",
-  "Christopher",
-  "Craig",
+  "Chris",
   "Daniel",
   "David",
   "Dennis",
-  "Donald",
-  "Douglas",
   "Dylan",
   "Edward",
   "Eric",
@@ -35,10 +24,7 @@ const male = [
   "Frank",
   "Gary",
   "George",
-  "Gerald",
-  "Gregory",
-  "Harold",
-  "Harry",
+  "Greg",
   "Henry",
   "Howard",
   "Jack",
@@ -48,62 +34,82 @@ const male = [
   "Jeffrey",
   "Jeremy",
   "Jerry",
-  "Jesse",
   "Joe",
   "John",
   "Johnny",
   "Jonathan",
   "Jordan",
-  "Jose",
   "Joseph",
   "Joshua",
-  "Juan",
   "Justin",
   "Keith",
-  "Kenneth",
   "Kevin",
   "Kyle",
-  "Larry",
   "Lawrence",
-  "Louis",
   "Mark",
   "Matthew",
   "Michael",
   "Nathan",
-  "Nicholas",
+  "Nick",
   "Patrick",
   "Paul",
   "Peter",
-  "Philip",
   "Phillip",
-  "Ralph",
-  "Randy",
   "Raymond",
   "Richard",
   "Robert",
-  "Roger",
-  "Ronald",
-  "Roy",
   "Russell",
   "Ryan",
   "Samuel",
   "Scott",
   "Sean",
   "Stephen",
-  "Steven",
+  "Steve",
   "Terry",
   "Thomas",
-  "Timothy",
+  "Tim",
   "Tyler",
   "Vincent",
-  "Walter",
   "Wayne",
   "William",
-  "Willie",
-  "Zachary",
 ];
-const female = [
-  "Alice",
+
+const male_hisp = [
+  "Alejandro",
+  "Jose",
+  "Carlos",
+  "Jorge",
+  "Samuel",
+  "Sebastián",
+  "Óscar",
+];
+
+const male_easa = [
+  "Zitong",
+  "Yota",
+  "Jun-woo",
+  "Kenji",
+  "Seo Joon",
+  "Tian",
+  "Sijie",
+];
+
+const male_soua = [
+  "Parth",
+  "Ishaan",
+  "Sidarth",
+  "Abhijit",
+]
+
+const male_mena = [
+  "Mo",
+  "Adir",
+  "Fahim",
+  "Jamaal",
+  "Najeeb",
+];
+
+const female_euro = [
   "Amanda",
   "Amber",
   "Amy",
@@ -112,13 +118,8 @@ const female = [
   "Ann",
   "Anna",
   "Ashley",
-  "Barbara",
-  "Betty",
-  "Beverly",
-  "Brenda",
   "Brittany",
   "Carol",
-  "Carolyn",
   "Catherine",
   "Cheryl",
   "Christina",
@@ -127,18 +128,11 @@ const female = [
   "Cynthia",
   "Danielle",
   "Deborah",
-  "Debra",
   "Denise",
   "Diana",
-  "Diane",
-  "Donna",
-  "Doris",
-  "Dorothy",
   "Elizabeth",
-  "Emily",
   "Emma",
   "Evelyn",
-  "Frances",
   "Gloria",
   "Grace",
   "Hannah",
@@ -146,20 +140,14 @@ const female = [
   "Helen",
   "Jacqueline",
   "Jane",
-  "Janet",
   "Janice",
   "Jean",
   "Jennifer",
   "Jessica",
-  "Joan",
-  "Joyce",
-  "Judith",
   "Judy",
   "Julia",
   "Julie",
   "Karen",
-  "Katherine",
-  "Kathleen",
   "Kathryn",
   "Kathy",
   "Kelly",
@@ -172,14 +160,9 @@ const female = [
   "Madison",
   "Margaret",
   "Maria",
-  "Marie",
-  "Marilyn",
-  "Martha",
-  "Mary",
   "Megan",
   "Melissa",
   "Michelle",
-  "Mildred",
   "Nancy",
   "Nicole",
   "Olivia",
@@ -188,23 +171,53 @@ const female = [
   "Rachel",
   "Rebecca",
   "Rose",
-  "Ruth",
   "Samantha",
   "Sandra",
   "Sara",
   "Sarah",
   "Sharon",
-  "Shirley",
   "Stephanie",
   "Susan",
   "Tammy",
   "Teresa",
-  "Theresa",
-  "Tiffany",
   "Victoria",
-  "Virginia",
 ];
-const surname = [
+
+const female_hisp = [
+  "Sofía",
+  "Camila",
+  "Victoria",
+  "Mía",
+  "Fernanda",
+  "Alejandra",
+];
+
+const female_easa = [
+  "Yi",
+  "Kira",
+  "Hitomi",
+  "Eun-ji",
+  "Hyeonjoo",
+  "Saki",
+  "Yuna",
+];
+
+const female_soua = [
+  "Priya",
+  "Ritu",
+  "Tanvi",
+  "Zara",
+]
+
+const female_mena = [
+  "Aisha",
+  "Noor",
+  "Daria",
+  "Yesim",
+  "Rajaa",
+];
+
+const surname_euro = [
   "Adams",
   "Aguilar",
   "Alexander",
@@ -266,7 +279,6 @@ const surname = [
   "Daniels",
   "Davidson",
   "Davis",
-  "Day",
   "Dean",
   "Delgado",
   "Diaz",
@@ -361,7 +373,6 @@ const surname = [
   "Lawson",
   "Lee",
   "Lewis",
-  "Little",
   "Long",
   "Lopez",
   "Lucas",
@@ -505,20 +516,195 @@ const surname = [
   "Woods",
   "Wright",
   "Young",
+  "Rodriguez",
+  "Perez",
+  "Moreno",
+  "Garcia",
+  "Gonzalez",
+  "Ortiz",
+  "Castro",
+  "Alvarez",
+  "Torres",
+  "Ortega",
+  "Molina",
+  "Ruiz",
+  "Cho",
+  "Xu",
+  "Zhao",
+  "Kim",
+  "Ryu",
+  "Liu",
+  "Sun",
+  "Lam",
+  "Woo",
+  "Wu",
 ];
-const images = [
-  "https://i.imgur.com/6Yjoy1w.png",
-  "https://i.imgur.com/VClVVJ4.png",
-  "https://i.imgur.com/eM2vh3M.png",
-  "https://i.imgur.com/cxzfZKs.png",
-  "https://i.imgur.com/eAH8tdB.png",
-  "https://i.imgur.com/bn3Q4Tg.png",
-  "https://i.imgur.com/c04TKcG.png",
-  "https://i.imgur.com/RHwuOdC.png",
-  "https://i.imgur.com/ekGJNjX.png",
-  "https://i.imgur.com/9iEhNMu.png",
+
+const surname_hisp = [
+  "Hernández",
+  "García",
+  "Martínez",
+  "López",
+  "González",
+  "Rodríguez",
+  "Pérez",
+  "Sánchez",
+  "Ramírez",
+  "Cruz",
+  "Flores",
+  "Gómez",
+  "Morales",
+  "Vázquez",
+  "Reyes",
+  "Jímenez",
+  "Torres",
+  "Díaz",
+  "Gutiérrez",
+  "Mendoza",
+  "Ruiz",
+  "Aguilar",
+  "Ortiz",
+  "Castillo",
+  "Moreno",
+  "Romero",
+  "Álvarez",
+  "Chávez",
+  "Rivera",
+  "Juárez",
+  "Ramos",
+  "Méndez",
+  "Domínguez",
+  "Herrera",
+  "Medina",
+  "Vargas",
+  "Castro",
+  "Guzmán",
+  "Velázquez",
+  "Muñoz",
+  "Rojas",
+  "Contreras",
+  "Salazar",
+  "Luna",
+  "de la Cruz",
+  "Ortega",
+  "Guerrero",
+  "Santiago",
+  "Estrada",
 ];
-let all = female.concat(male);
+
+const surname_easa = [
+  "Cho",
+  "Ito",
+  "Park",
+  "Kim",
+  "Ryu",
+  "Ren",
+  "Sun",
+  "Tseng",
+  "Tong",
+  "Um",
+  "Som",
+  "Lay",
+  "Prak",
+  "Song",
+  "Law",
+  "Kwok",
+  "Yeung",
+  "Lim",
+  "Nguyen",
+  "Tran",
+  "Vo",
+  "Ho",
+];
+
+const surname_soua = [
+  "Balasubramanium",
+  "Banerjee",
+  "Bhatnagar",
+  "Bose",
+  "Chatterjee",
+  "Chattopadhyay",
+  "Chauhan",
+  "Chavan",
+  "Chopra",
+  "Das",
+  "Dasgupta",
+  "Dutta",
+  "Gavde",
+  "Gupta",
+  "Jain",
+  "Jaiteley",
+  "Jayaraman",
+  "Jhadav",
+  "Jindal",
+  "Kadam",
+  "Kapoor",
+  "Kapur",
+  "Khan",
+  "Lobo",
+  "Malhotra",
+  "Malik",
+  "Mehra",
+  "Mehta",
+  "Mistry",
+  "Mittal",
+  "Mukopadhyay",
+  "Nair",
+  "Patel",
+  "Patil",
+  "Pawar",
+  "Pillai",
+  "Powar",
+  "Rangan",
+  "Rangarajan",
+  "Rao",
+  "Rodrigues",
+  "Rathore",
+  "Sarin",
+  "Saxena",
+  "Sen",
+  "Sengupta",
+  "Shah",
+  "Sharma",
+  "Singh",
+  "Singhal",
+  "Subramanium",
+  "Tata",
+  "Tambe",
+  "Trivedi",
+  "Venkatesan",
+  "Verma",
+  "Vyas",
+  "Yadav",
+];
+
+const surname_mena = [
+  "Ali",
+  "Fayed",
+  "Hadid",
+  "Isa",
+  "Nader",
+  "Rahman",
+  "Ahmed",
+  "Haque",
+  "Hussain",
+  "Hossain",
+];
+
+const unsplash = [
+  'I2g6Oe9ElbE',
+  'IAiA3CFf6kc',
+  'VoBY0tQo52E',
+  'QJEVpydulGs',
+  'AeYr1eNyidA',
+  'aZzXKGcyWqk',
+  'UIrgThPxuJ4',
+];
+let all_euro = female_euro.concat(male_euro);
+let all_hisp = female_hisp.concat(male_hisp);
+let all_easa = female_easa.concat(male_easa);
+let all_soua = female_soua.concat(male_soua);
+let all_mena = female_mena.concat(male_mena);
 
 figma.ui.onmessage = async (msg) => {
   if (msg.type === "create-rectangles") {
@@ -528,7 +714,6 @@ figma.ui.onmessage = async (msg) => {
         if (node.type === "TEXT") {
           let textNode = <TextNode>node;
           await figma.loadFontAsync(<FontName>textNode.fontName);
-          // console.log(msg.gender);
           node.characters = getRandomItem(msg.gender);
         }
       }
@@ -541,19 +726,20 @@ figma.ui.onmessage = async (msg) => {
           case 'ELLIPSE':
           case 'POLYGON':
           case 'STAR':
-          case 'VECTOR':
-          case 'TEXT': {
+          case 'VECTOR': {
             // Create a new array of fills, because we can't directly modify the old one
-            const img_id = Math.floor(Math.random() * Math.floor(1000));
-            console.log("image id is "+ img_id);            
+            // const img_id = unsplash[Math.floor(Math.random() * Math.floor(unsplash.length))];
+            // console.log("image id is "+ img_id);            
             // const url = 'https://picsum.photos/id/' + img_id + '/120';
-            const url = 'https://scripter.rsms.me/icon.png'
-            let bytes = await getImage(url);    
+            const url = '';
+            const paint = await downloadImage(url);    
+            // const url = 'https://scripter.rsms.me/icon.png'
+            // let bytes = await getImage(url);    
             // for (const paint of node.fills) {
             //   newFills.push(await downloadImage(url))
             // }
-            let imageHash = figma.createImage(bytes).hash
-            node.fills = [ { type: "IMAGE", scaleMode: "FIT", imageHash } ];
+            // let imageHash = figma.createImage(bytes).hash
+            node.fills = [paint];
             figma.currentPage.selection = [node]
             figma.viewport.scrollAndZoomIntoView([node])          
             break
@@ -571,35 +757,113 @@ figma.ui.onmessage = async (msg) => {
 
 // Randomize names
 function getRandomItem(gender) {
-  let rand_f = Math.floor(Math.random() * Math.floor(female.length));
-  let rand_a = Math.floor(Math.random() * Math.floor(all.length));
-  let rand_s = Math.floor(Math.random() * Math.floor(surname.length));
+  let sampleOfTen = [
+    easaName(gender),
+    euroName(gender),
+    euroName(gender),
+    euroName(gender),
+    euroName(gender),
+    euroName(gender),
+    euroName(gender),
+    euroName(gender),
+    hispName(gender),
+    souaName(gender),
+    menaName(gender),
+  ];
+  let rand = Math.floor(Math.random() * Math.floor(sampleOfTen.length));
+  return sampleOfTen[rand]
+}
+
+function easaName(gender) {
+  let rand_f = Math.floor(Math.random() * Math.floor(female_euro.length));
+  let rand_a = Math.floor(Math.random() * Math.floor(all_euro.length));
+  let rand_s = Math.floor(Math.random() * Math.floor(surname_easa.length));
   return (
     (gender === "F"
-      ? female[rand_f]
+      ? female_euro[rand_f]
       : gender === "M"
-      ? male[rand_f]
-      : all[rand_a]) +
+      ? male_euro[rand_f]
+      : all_euro[rand_a]) +
     " " +
-    surname[rand_s]
+    surname_easa[rand_s]
+  );
+}
+
+function souaName(gender) {
+  let rand_f = Math.floor(Math.random() * Math.floor(female_soua.length));
+  let rand_a = Math.floor(Math.random() * Math.floor(all_soua.length));
+  let rand_s = Math.floor(Math.random() * Math.floor(surname_soua.length));
+  return (
+    (gender === "F"
+      ? female_soua[rand_f]
+      : gender === "M"
+      ? male_soua[rand_f]
+      : all_soua[rand_a]) +
+    " " +
+    surname_soua[rand_s]
+  );
+}
+
+function menaName(gender) {
+  let rand_f = Math.floor(Math.random() * Math.floor(female_mena.length));
+  let rand_a = Math.floor(Math.random() * Math.floor(all_mena.length));
+  let rand_s = Math.floor(Math.random() * Math.floor(surname_mena.length));
+  return (
+    (gender === "F"
+      ? female_mena[rand_f]
+      : gender === "M"
+      ? male_mena[rand_f]
+      : all_mena[rand_a]) +
+    " " +
+    surname_mena[rand_s]
+  );
+}
+
+function hispName(gender) {
+  let rand_f = Math.floor(Math.random() * Math.floor(female_hisp.length));
+  let rand_a = Math.floor(Math.random() * Math.floor(all_hisp.length));
+  let rand_s = Math.floor(Math.random() * Math.floor(surname_hisp.length));
+  return (
+    (gender === "F"
+      ? female_hisp[rand_f]
+      : gender === "M"
+      ? male_hisp[rand_f]
+      : all_hisp[rand_a]) +
+    " " +
+    surname_hisp[rand_s]
+  );
+}
+
+function euroName(gender) {
+  let rand_f = Math.floor(Math.random() * Math.floor(female_euro.length));
+  let rand_a = Math.floor(Math.random() * Math.floor(all_euro.length));
+  let rand_s = Math.floor(Math.random() * Math.floor(surname_euro.length));
+  return (
+    (gender === "F"
+      ? female_euro[rand_f]
+      : gender === "M"
+      ? male_euro[rand_f]
+      : all_euro[rand_a]) +
+    " " +
+    surname_euro[rand_s]
   );
 }
 
 // this works, but trying Rasmus' code
-// async function downloadImage(url) {
-//   figma.showUI(__html__, { visible: false })
+async function downloadImage(url) {
+  figma.showUI(__html__, { visible: false })
 
-//   figma.ui.postMessage(url);
+  figma.ui.postMessage(url);
 
-//   const newBytes: Uint8Array = await new Promise((resolve, reject) => {
-//     figma.ui.onmessage = value => resolve(value as Uint8Array);
-//   })
+  const newBytes: Uint8Array = await new Promise((resolve, reject) => {
+    figma.ui.onmessage = value => resolve(value as Uint8Array);
+  })
 
-//   const newPaint: Paint = { scaleMode: 'FILL', type: 'IMAGE', imageHash: figma.createImage(newBytes).hash };
-//   return newPaint;
-// }
+  const newPaint: Paint = { scaleMode: 'FILL', type: 'IMAGE', imageHash: figma.createImage(newBytes).hash };
+  return newPaint;
+}
 
-// async function addAvatar() {
+// async function addAvatar(node) {
 //   const url = 'https://picsum.photos/1200'
 //   const avatar = figma.createEllipse()
 //   avatar.resize(128, 128)
@@ -607,18 +871,18 @@ function getRandomItem(gender) {
 //   const paint: Paint = await downloadImage(url)
 //   avatar.fills = [ paint ]
 
-//   // if (node && (node.type === "GROUP" || node.type === "FRAME")) {
-//   //   node.appendChild(avatar)
-//   // }
+//   if (node && (node.type === "GROUP" || node.type === "FRAME")) {
+//     node.appendChild(avatar)
+//   }
   
 //   return avatar;
 // }
 
 // async function createAvatars () {
 //   if (figma.currentPage.selection.length) {
-//     await Promise.all(figma.currentPage.selection.map(selected => addAvatar()))
+//     await Promise.all(figma.currentPage.selection.map(selected => addAvatar(Node)))
 //   } else {
-//     const avatar = await addAvatar()
+//     const avatar = await addAvatar(Node)
 //     figma.currentPage.appendChild(avatar);
 //     figma.currentPage.selection = [avatar];
 //     figma.viewport.scrollAndZoomIntoView([avatar]);  
@@ -647,27 +911,27 @@ function getRandomItem(gender) {
 // return null;
 // }
 
-async function getImage(urls: string): Promise<Uint8Array> {
-  let response: Response | null = null;
+// async function getImage(urls: string): Promise<Uint8Array> {
+//   let response: Response | null = null;
 
-    console.log("fetching")
-    const urlResponse = await fetch(urls);
-    console.log("fetched")
-    if (urlResponse && urlResponse.status === 200) {
-      console.log("in 1st if")
-      response = urlResponse;
-      console.log("responded")
-    }
+//     console.log("fetching")
+//     const urlResponse = await fetch(urls);
+//     console.log("fetched")
+//     if (urlResponse && urlResponse.status === 200) {
+//       console.log("in 1st if")
+//       response = urlResponse;
+//       console.log("responded")
+//     }
 
-  if (!response || response.status !== 200) {
-    console.log("error")
-    throw new Error("Couldn't get the video cover image. Is the video URL correct?");
-  }
+//   if (!response || response.status !== 200) {
+//     console.log("error")
+//     throw new Error("Couldn't get the video cover image. Is the video URL correct?");
+//   }
 
-  console.log("awaiting")
-  const buffer = await response.arrayBuffer();
-  console.log("finished waiting")
+//   console.log("awaiting")
+//   const buffer = await response.arrayBuffer();
+//   console.log("finished waiting")
 
-  return new Uint8Array(buffer);
-}
+//   return new Uint8Array(buffer);
+// }
 

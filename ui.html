@@ -113,7 +113,7 @@
               />
               <div class="tb">
                 <p class="h3">Avatars</p>
-                <p class="b2">Frida, Vincent, and more.</p>
+                <p class="b2">Select vector layer(s).</p>
               </div>
             </div>
           </button>
@@ -148,6 +148,8 @@
         contentType = this.value;
       });
     }
+
+
 
     // this can probably be refactored
     document.getElementById("f").onclick = () => {
@@ -222,12 +224,39 @@
     const imageData = ctx.getImageData(0, 0, image.width, image.height);
     return imageData;
   }
-  window.onmessage = async (event) => {
+
+const unsplash_f = [
+  'K07jvi25Qxg',
+  'gcYA1p1_b28',
+  'wUKtCWijJTQ',
+  'x5qTeRzTY_Y',
+  '_yeDQX95JeI',
+  'VoBY0tQo52E',
+  'Zz5LQe-VSMY',
+];
+
+const unsplash_m = [
+  'MTZTGvDsHFY',
+  'c_GmwfHBDzk',
+  'IAiA3CFf6kc',
+  'I2g6Oe9ElbE',
+  'QJEVpydulGs',
+  'WNoLnJo7tS8',
+  'v2aKnjMbP_k',
+];
+
+const unsplash_all = unsplash_f.concat(unsplash_m);
+
+window.onmessage = async (event) => {
     const canvas = document.createElement("canvas");
     const ctx = canvas.getContext("2d");
-    const img_id = Math.floor(Math.random() * Math.floor(1000));
-    console.log("image id is "+ img_id);
-    const url = 'https://picsum.photos/id/' + img_id + '/120';
+    // const gender = document.getElementsByName("gender");
+    // console.log("gender is "+ gender);
+    const img_id = unsplash_all[Math.floor(Math.random() * Math.floor(unsplash_all.length))];
+    // const img_id = unsplash_f[Math.floor(Math.random() * Math.floor(unsplash.length))];
+    console.log("image id is "+ img_id);            
+    // const url = 'https://picsum.photos/id/' + img_id + '/120';
+    const url = 'https://source.unsplash.com/'.concat(img_id);
     console.log("Hello");
     let newBytes;
     try {
